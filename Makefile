@@ -38,7 +38,7 @@ lint: $(INSTALL_STAMP)
     # 
     # $(POETRY) run black --check $(TESTS) $(PYMODULE) --diff
 	@if [ -z $(MYPY) ]; then echo "Mypy not found, skipping..."; else echo "Running Mypy..."; $(POETRY) run mypy $(PYMODULE) $(TESTS); fi
-	@echo "Running Ruff..."; $(POETRY) run ruff . --fix
+	@echo "Running Ruff..."; $(POETRY) run ruff check . --fix
 
 .PHONY: test
 test: $(INSTALL_STAMP)
